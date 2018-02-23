@@ -20,5 +20,3 @@ variable "default_tags" {
     GitHubOrganization = "rb-org"
   }
 }
-
-

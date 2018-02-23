@@ -39,6 +39,7 @@ module "vpc" {
   enable_dns_hostnames = true
   enable_s3_endpoint   = true
   external_nat_ip_ids  = ["${aws_eip.nat.*.id}"]
+
   tags = "${merge(var.default_tags, 
       map("Environment", format("%s", var.environment)), 
       map("Workspace", format("%s", terraform.workspace)),
