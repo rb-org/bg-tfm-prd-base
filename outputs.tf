@@ -11,9 +11,9 @@ output "public_subnet_ids" {
 }
 
 output "private_subnets_cidrs" {
-  value = "${module.network.private_subnets_cidrs}"
+  value = "${module.network.private_subnet_cidrs}"
 }
 
 output "public_subnets_cidrs" {
-  value = "${module.network.public_subnets_cidrs}"
+  value = "${module.network.public_subnet_cidrs}"
 }
