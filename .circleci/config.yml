@@ -57,7 +57,7 @@ jobs:
             for DIR in $TF_DIRS
             do
               echo Processing $DIR
-              lines=$(terraform validate -input=false -check-variables=false -no-color $DIR | wc -l | sed 's/[^0-9]//g')
+              lines=$(terraform validate -input=false -check-variables=false -no-color $DIR -var-file=env/${WKSPC}.tfvars | wc -l | sed 's/[^0-9]//g')
               if [ ${lines} != "0" ]
               then
                 echo "Please run terraform validate ${file}"
@@ -115,7 +115,7 @@ jobs:
             for DIR in $TF_DIRS
             do
               echo Processing $DIR
-              lines=$(terraform validate -input=false -check-variables=false -no-color $DIR | wc -l | sed 's/[^0-9]//g')
+              lines=$(terraform validate -input=false -check-variables=false -no-color $DIR -var-file=env/${WKSPC}.tfvars | wc -l | sed 's/[^0-9]//g')
               if [ ${lines} != "0" ]
               then
                 echo "Please run terraform validate ${file}"
@@ -182,7 +182,7 @@ jobs:
             for DIR in $TF_DIRS
             do
               echo Processing $DIR
-              lines=$(terraform validate -input=false -check-variables=false -no-color $DIR | wc -l | sed 's/[^0-9]//g')
+              lines=$(terraform validate -input=false -check-variables=false -no-color $DIR -var-file=env/${WKSPC}.tfvars | wc -l | sed 's/[^0-9]//g')
               if [ ${lines} != "0" ]
               then
                 echo "Please run terraform validate ${file}"
