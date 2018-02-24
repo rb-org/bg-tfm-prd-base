@@ -48,7 +48,7 @@ jobs:
             mkdir -p /usr/local/tflint/bin
             export PATH=/usr/local/tflint/bin:$PATH
             install tflint /usr/local/tflint/bin
-            # tflint --var-file=env/${WKSPC}.tfvars --var-file=env/secret.tfvars --error-with-issues
+            # tflint --var-file=env/${WKSPC}.tfvars --error-with-issues
       - run:
           name: validate
           command: |
@@ -57,7 +57,7 @@ jobs:
             for DIR in $TF_DIRS
             do
               echo Processing $DIR
-              lines=$(terraform validate -input=false -check-variables=false -no-color $DIR -var-file=env/${WKSPC}.tfvars -var-file=env/secret.tfvars| wc -l | sed 's/[^0-9]//g')
+              lines=$(terraform validate -input=false -check-variables=false -no-color $DIR | wc -l | sed 's/[^0-9]//g')
               if [ ${lines} != "0" ]
               then
                 echo "Please run terraform validate ${file}"
@@ -81,7 +81,7 @@ jobs:
       - run: mkdir -p plans
       - run: terraform init -input=false
       - run: terraform workspace select $WKSPC
-      - run: terraform plan -var-file=env/${WKSPC}.tfvars -var-file=env/secret.tfvars -no-color -input=false -out=plans/tfm.plan
+      - run: terraform plan -var-file=env/${WKSPC}.tfvars -var allowed_ips=${allowed_ips} -var acc_id=${acc_id} -no-color -input=false -out=plans/tfm.plan
       - run: terraform apply -no-color -input=false -auto-approve plans/tfm.plan
       - persist_to_workspace:
           root: plans
@@ -115,7 +115,7 @@ jobs:
             for DIR in $TF_DIRS
             do
               echo Processing $DIR
-              lines=$(terraform validate -input=false -check-variables=false -no-color $DIR -var-file=env/${WKSPC}.tfvars -var-file=env/secret.tfvars| wc -l | sed 's/[^0-9]//g')
+              lines=$(terraform validate -input=false -check-variables=false -no-color $DIR | wc -l | sed 's/[^0-9]//g')
               if [ ${lines} != "0" ]
               then
                 echo "Please run terraform validate ${file}"
@@ -134,7 +134,7 @@ jobs:
       - run: mkdir -p plans
       - run: terraform init -input=false
       - run: terraform workspace select $WKSPC
-      - run: terraform plan -var-file=env/${WKSPC}.tfvars -var-file=env/secret.tfvars -no-color -input=false -out=plans/tfm.plan
+      - run: terraform plan -var-file=env/${WKSPC}.tfvars -var allowed_ips=${allowed_ips} -var acc_id=${acc_id} -no-color -input=false -out=plans/tfm.plan
       - persist_to_workspace:
           root: plans
           paths:
@@ -182,7 +182,7 @@ jobs:
             for DIR in $TF_DIRS
             do
               echo Processing $DIR
-              lines=$(terraform validate -input=false -check-variables=false -no-color $DIR -var-file=env/${WKSPC}.tfvars -var-file=env/secret.tfvars| wc -l | sed 's/[^0-9]//g')
+              lines=$(terraform validate -input=false -check-variables=false -no-color $DIR | wc -l | sed 's/[^0-9]//g')
               if [ ${lines} != "0" ]
               then
                 echo "Please run terraform validate ${file}"
@@ -201,7 +201,7 @@ jobs:
       - run: mkdir -p plans
       - run: terraform init -input=false
       - run: terraform workspace select $WKSPC
-      - run: terraform plan -var-file=env/${WKSPC}.tfvars -var-file=env/secret.tfvars -no-color -input=false -out=plans/tfm.plan
+      - run: terraform plan -var-file=env/${WKSPC}.tfvars -var allowed_ips=${allowed_ips} -var acc_id=${acc_id} -no-color -input=false -out=plans/tfm.plan
       - persist_to_workspace:
           root: plans
           paths:
