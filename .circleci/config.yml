@@ -81,7 +81,7 @@ jobs:
       - run: mkdir -p plans
       - run: terraform init -input=false
       - run: terraform workspace select $WKSPC
-      - run: terraform plan -var-file=env/${WKSPC}.tfvars -var allowed_ips=${allowed_ips} -var acc_id=${acc_id} -no-color -input=false -out=plans/tfm.plan
+      - run: terraform plan -var-file=env/${WKSPC}.tfvars -no-color -input=false -out=plans/tfm.plan
       - run: terraform apply -no-color -input=false -auto-approve plans/tfm.plan
       - persist_to_workspace:
           root: plans
@@ -134,7 +134,7 @@ jobs:
       - run: mkdir -p plans
       - run: terraform init -input=false
       - run: terraform workspace select $WKSPC
-      - run: terraform plan -var-file=env/${WKSPC}.tfvars -var allowed_ips=${allowed_ips} -var acc_id=${acc_id} -no-color -input=false -out=plans/tfm.plan
+      - run: terraform plan -var-file=env/${WKSPC}.tfvars -no-color -input=false -out=plans/tfm.plan
       - persist_to_workspace:
           root: plans
           paths:
@@ -201,7 +201,7 @@ jobs:
       - run: mkdir -p plans
       - run: terraform init -input=false
       - run: terraform workspace select $WKSPC
-      - run: terraform plan -var-file=env/${WKSPC}.tfvars -var allowed_ips=${allowed_ips} -var acc_id=${acc_id} -no-color -input=false -out=plans/tfm.plan
+      - run: terraform plan -var-file=env/${WKSPC}.tfvars -no-color -input=false -out=plans/tfm.plan
       - persist_to_workspace:
           root: plans
           paths:
