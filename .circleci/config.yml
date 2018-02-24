@@ -48,7 +48,7 @@ jobs:
             mkdir -p /usr/local/tflint/bin
             export PATH=/usr/local/tflint/bin:$PATH
             install tflint /usr/local/tflint/bin
-            tflint --var-file=env/${WKSPC}.tfvars --var-file=env/secret.tfvars --error-with-issues
+            # tflint --var-file=env/${WKSPC}.tfvars --var-file=env/secret.tfvars --error-with-issues
       - run:
           name: validate
           command: |
