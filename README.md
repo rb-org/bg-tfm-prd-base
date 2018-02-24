@@ -2,9 +2,9 @@
 
 |Branch|Build Status|
 |---|:---:|
-|dev-d202 | ... |
-| uat-t201 | ... |
-| master-p200 | ... |
+|dev-d202 | [![CircleCI](https://circleci.com/gh/rb-org/bg-tfm-prd-base/tree/dev.svg?style=svg&circle-token=6acb7dd87c016220677f0ee093c0fa6e403de949)](https://circleci.com/gh/rb-org/bg-tfm-prd-base/tree/dev) |
+| uat-t201 | [![CircleCI](https://circleci.com/gh/rb-org/bg-tfm-prd-base/tree/uat.svg?style=svg&circle-token=6acb7dd87c016220677f0ee093c0fa6e403de949)](https://circleci.com/gh/rb-org/bg-tfm-prd-base/tree/uat) |
+| master-p200 | [![CircleCI](https://circleci.com/gh/rb-org/bg-tfm-prd-base/tree/master.svg?style=svg&circle-token=6acb7dd87c016220677f0ee093c0fa6e403de949)](https://circleci.com/gh/rb-org/bg-tfm-prd-base/tree/master) |
 
 Project Repos:
 
