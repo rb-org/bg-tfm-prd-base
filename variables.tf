@@ -4,6 +4,8 @@ variable "name_prefix" {
   default = "bg"
 }
 
+variable "acc_id" {}
+
 variable "vpc_cidr" {}
 
 variable "az_count" {}
